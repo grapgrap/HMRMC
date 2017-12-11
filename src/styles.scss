@@ -3,11 +3,15 @@ $light: #F9ED69;
 $primary: #F08A5D;
 $dark: #B83B5E;
 $secondary: #6A2C70;
+$background: #E1E2E1;
+$background-light: #F5F5F6;
 
 html, body, app-root {
   display: flex;
   flex-direction: column;
   flex: 100%;
+  font-size: 16px;
+  background-color: $background;
 }
 
 .navbar {
@@ -15,7 +19,7 @@ html, body, app-root {
   flex-direction: row;
   justify-content: space-between;
   flex: 100%;
-  padding: 0 20px;
+  padding: 0 1em;
   background-color: $primary;
   .brand {
     font-size: 1.2em;
@@ -25,5 +29,19 @@ html, body, app-root {
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 0 1em;
+}
+
+.panel {
+  margin: 1em 0;
+  padding: .5em;
+  background-color: $background-light;
+  .title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .sub-title {
+    font-size: 1.2em;
+  }
 }
