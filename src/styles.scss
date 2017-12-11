@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+// pallet
+$light: #F9ED69;
+$primary: #F08A5D;
+$dark: #B83B5E;
+$secondary: #6A2C70;
+
+html, body, app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 100%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 100%;
+  padding: 0 20px;
+  background-color: $primary;
+  .brand {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}

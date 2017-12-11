@@ -1,8 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { MainModule } from './main/main.module';
+import { NavbarModule } from './shared/component/navbar/navbar.module';
 
 
 @NgModule({
@@ -10,9 +13,13 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    NavbarModule,
+    MainModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
