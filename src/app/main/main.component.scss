@@ -1,0 +1,17 @@
+.container {
+  flex-direction: row;
+}
+
+.left {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-right: .5em;
+}
+
+.right {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: .5em;
+}
