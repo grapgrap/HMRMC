@@ -12,22 +12,22 @@
     <th>이수현황</th>
   </tr>
   </tbody>
-  <tbody *ngFor="let item of mock let i = index">
+  <tbody *ngFor="let semester of mock let i = index">
   <tr>
-    <th [attr.rowspan]="item.first.length + 1">{{i + 1}}-1</th>
-    <th [attr.rowspan]="item.first.length + 1">교필</th>
+    <th [attr.rowspan]="semester.first.length + 1">{{i + 1}}-1</th>
+    <th [attr.rowspan]="semester.first.length + 1">교필</th>
   </tr>
-  <tr *ngFor="let subject of item.first">
+  <tr *ngFor="let subject of semester.first">
     <td>{{subject.name}}</td>
     <td>{{subject.credit}}</td>
     <td>{{subject.is_complete ? subject.credit : ''}}</td>
     <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   <tr>
-    <th [attr.rowspan]="item.second.length + 1">{{i + 1}}-2</th>
-    <th [attr.rowspan]="item.second.length + 1">교필</th>
+    <th [attr.rowspan]="semester.second.length + 1">{{i + 1}}-2</th>
+    <th [attr.rowspan]="semester.second.length + 1">교필</th>
   </tr>
-  <tr *ngFor="let subject of item.second">
+  <tr *ngFor="let subject of semester.second">
     <td>{{subject}}</td>
     <td></td>
     <td></td>
