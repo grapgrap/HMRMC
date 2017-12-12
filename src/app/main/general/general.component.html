@@ -23,6 +23,7 @@
     <td>{{subject.is_complete ? subject.credit : ''}}</td>
     <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
+
   <tr>
     <th [attr.rowspan]="semester.second.length + 1">{{i + 1}}-2</th>
     <th [attr.rowspan]="semester.second.length + 1">교필</th>
