@@ -1,18 +1,28 @@
-<div class="container">
-  <div class="left">
-    <div class="total">
-      <app-total></app-total>
-    </div>
-    <div class="general">
-      <app-general></app-general>
-    </div>
-    <div class="bsm">
-      <app-bsm></app-bsm>
+<div fxLayout="column" fxLayoutGap="1em" class="container">
+  <div class="file-control">
+    <div fxLayout="row" fxLayoutAlign="end" class="panel">
+      <div class="btn-group">
+        <button class="btn primary">SAVE</button>
+        <button class="btn accent">LOAD</button>
+      </div>
     </div>
   </div>
-  <div class="right">
-    <div class="major">
-      <app-major></app-major>
+  <div fxLayout="row" fxLayoutGap="1em" class="viewer">
+    <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em" class="left">
+      <div class="total">
+        <app-total></app-total>
+      </div>
+      <div class="general">
+        <app-general></app-general>
+      </div>
+      <div class="bsm">
+        <app-bsm></app-bsm>
+      </div>
+    </div>
+    <div fxFlex="1 1" class="right">
+      <div class="major">
+        <app-major></app-major>
+      </div>
     </div>
   </div>
 </div>

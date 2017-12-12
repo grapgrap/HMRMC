@@ -5,10 +5,12 @@ import { TotalModule } from './total/total.module';
 import { BsmModule } from './bsm/bsm.module';
 import { GeneralModule } from './general/general.module';
 import { MajorModule } from './major/major.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
+    FlexLayoutModule,
     TotalModule,
     BsmModule,
     GeneralModule,

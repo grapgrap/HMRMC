@@ -6,19 +6,12 @@ $secondary: #6A2C70;
 $background: #F2F2F2;
 
 html, body, app-root {
-  display: flex;
-  flex-direction: column;
-  flex: 100%;
   font-size: 16px;
 }
 
 .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex: 100%;
-  padding: 0 1em;
   background-color: $light;
+  padding: 0 1em;
   .brand {
     font-size: 1.2em;
     font-weight: bold;
@@ -26,9 +19,7 @@ html, body, app-root {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  margin: 1em;
+  padding: .5em;
 }
 
 .panel {
@@ -42,12 +33,27 @@ html, body, app-root {
 
 .table.bordered {
   width: 100%;
-  margin-bottom: .5em;
   border-collapse: collapse;
   border-spacing: 0;
   box-shadow: 6px 6px 4px -4px rgba(0, 0, 0, .2), 0 0 2px rgba(0,0,0,.24);
   th, td {
     padding: .5em;
     border: 1px solid #D9D9D9;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: .5em 1em;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #FFFFFF;
+  user-select: none;
+  cursor: pointer;
+  &.primary {
+    background-color: $primary;
+  }
+  &.accent {
+    background-color: $secondary;
   }
 }
