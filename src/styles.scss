@@ -28,11 +28,10 @@ html, body, app-root {
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0 1em;
+  margin: 1em;
 }
 
 .panel {
-  margin: 1em 0;
   padding: .5em;
   box-shadow: 6px 6px 4px -4px rgba(0, 0, 0, .2), 0 0 2px rgba(0,0,0,.24);
 }
@@ -43,7 +42,7 @@ html, body, app-root {
 
 .table.bordered {
   width: 100%;
-  margin: 1em 0;
+  margin-bottom: .5em;
   border-collapse: collapse;
   border-spacing: 0;
   box-shadow: 6px 6px 4px -4px rgba(0, 0, 0, .2), 0 0 2px rgba(0,0,0,.24);
