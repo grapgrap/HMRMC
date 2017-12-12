@@ -4,7 +4,7 @@ import { GeneralComponent } from './general.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [GeneralComponent],
   exports: [GeneralComponent]

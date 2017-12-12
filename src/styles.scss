@@ -35,19 +35,6 @@ html, body, app-root {
   margin: 1em 0;
   padding: .5em;
   box-shadow: 6px 6px 4px -4px rgba(0, 0, 0, .2), 0 0 2px rgba(0,0,0,.24);
-  .title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
-  .sub-title {
-    font-size: 1.2em;
-    margin: 12px 0;
-  }
-  .content {
-    margin: 6px 0;
-  }
 }
 
 [routerLink] {
@@ -62,6 +49,6 @@ html, body, app-root {
   box-shadow: 6px 6px 4px -4px rgba(0, 0, 0, .2), 0 0 2px rgba(0,0,0,.24);
   th, td {
     padding: .5em;
-    border-bottom: 1px solid #D9D9D9;
+    border: 1px solid #D9D9D9;
   }
 }

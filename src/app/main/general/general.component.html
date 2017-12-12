@@ -1,3 +1,37 @@
-<p>
-  general works!
-</p>
+<table class="table bordered">
+  <tbody>
+  <tr>
+    <th colspan="10">교양</th>
+  </tr>
+  <tr>
+    <th>학년</th>
+    <th>구분</th>
+    <th>교과목명</th>
+    <th>학점</th>
+    <th>이수학점</th>
+    <th>이수현황</th>
+  </tr>
+  </tbody>
+  <tbody *ngFor="let item of mock let i = index">
+  <tr>
+    <th [attr.rowspan]="item.first.length + 1">{{i + 1}}-1</th>
+    <th [attr.rowspan]="item.first.length + 1">교필</th>
+  </tr>
+  <tr *ngFor="let subject of item.first">
+    <td>{{subject.name}}</td>
+    <td>{{subject.credit}}</td>
+    <td>{{subject.is_complete ? subject.credit : ''}}</td>
+    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+  </tr>
+  <tr>
+    <th [attr.rowspan]="item.second.length + 1">{{i + 1}}-2</th>
+    <th [attr.rowspan]="item.second.length + 1">교필</th>
+  </tr>
+  <tr *ngFor="let subject of item.second">
+    <td>{{subject}}</td>
+    <td></td>
+    <td></td>
+    <td><input type="checkbox"></td>
+  </tr>
+  </tbody>
+</table>
