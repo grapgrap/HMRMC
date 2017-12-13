@@ -19,9 +19,9 @@
   </tr>
   <tr *ngFor="let subject of semester.first">
     <td>{{subject.name}}</td>
-    <td>{{subject.credit}}</td>
-    <td>{{subject.is_complete ? subject.credit : ''}}</td>
-    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
 
   <tr>
@@ -30,9 +30,9 @@
   </tr>
   <tr *ngFor="let subject of semester.second">
     <td>{{subject}}</td>
-    <td></td>
-    <td></td>
-    <td><input type="checkbox"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   </tbody>
 </table>

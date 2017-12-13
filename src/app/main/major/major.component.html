@@ -21,22 +21,22 @@
   </tr>
   <tr *ngFor="let subject of semester.first.required">
     <td>{{subject.name}}</td>
-    <td>{{subject.credit}}</td>
-    <td>{{subject.design_credit}}</td>
-    <td>{{subject.is_complete ? subject.credit : ''}}</td>
-    <td>{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   <tr>
     <th [attr.rowspan]="semester.first.electives.length + 1">전선</th>
   </tr>
   <tr *ngFor="let subject of semester.first.electives">
     <td>{{subject.name}}</td>
-    <td>{{subject.credit}}</td>
-    <td>{{subject.design_credit}}</td>
-    <td>{{subject.is_complete ? subject.credit : ''}}</td>
-    <td>{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
 
   <tr>
@@ -45,22 +45,22 @@
   </tr>
   <tr *ngFor="let subject of semester.second.required">
     <td>{{subject.name}}</td>
-    <td>{{subject.credit}}</td>
-    <td>{{subject.design_credit}}</td>
-    <td>{{subject.is_complete ? subject.credit : ''}}</td>
-    <td>{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   <tr>
     <th [attr.rowspan]="semester.second.electives.length + 1">전선</th>
   </tr>
   <tr *ngFor="let subject of semester.second.electives">
     <td>{{subject.name}}</td>
-    <td>{{subject.credit}}</td>
-    <td>{{subject.design_credit}}</td>
-    <td>{{subject.is_complete ? subject.credit : ''}}</td>
-    <td>{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+    <td class="text-center">{{subject.credit}}</td>
+    <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
+    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   </tbody>
 </table>
