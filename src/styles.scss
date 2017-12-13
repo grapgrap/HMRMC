@@ -17,6 +17,7 @@ html, body, app-root {
 .navbar {
   background-color: $light;
   padding: 0 1rem;
+  box-shadow: 0px 6px 4px -4px rgba(0, 0, 0, 0.2);
   .brand, .menu {
     margin: 0;
     padding: 1rem .5rem;
@@ -36,7 +37,7 @@ html, body, app-root {
 }
 
 .container {
-  padding: .5rem;
+  padding: 1rem;
 }
 
 .panel {

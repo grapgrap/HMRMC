@@ -6,11 +6,13 @@ import { BsmModule } from './bsm/bsm.module';
 import { GeneralModule } from './general/general.module';
 import { MajorModule } from './major/major.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FileControlBarModule } from '../shared/component/file-control-bar/file-control-bar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
+    FileControlBarModule,
     TotalModule,
     BsmModule,
     GeneralModule,
