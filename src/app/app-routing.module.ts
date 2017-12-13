@@ -6,6 +6,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'main'},
   {path: 'main', component: MainComponent},
   {path: 'info', loadChildren: 'app/info/info.module#InfoModule'},
+  {path: 'file', loadChildren: 'app/file/file.module#FileModule'},
 ];
 
 @NgModule({

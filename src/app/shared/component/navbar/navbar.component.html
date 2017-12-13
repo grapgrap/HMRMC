@@ -1,4 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="space-between" class="navbar">
-  <p class="brand" routerLink="/main">How 'Much' Remain My Credit</p>
-  <p class="info" routerLink="/info"><i class="material-icons">info</i></p>
+<div fxLayout="row" fxLayoutWrap fxLayoutGap="150px" class="navbar">
+  <a fxFlex="300px" class="brand" routerLink="/main">How 'Much' Remain My Credit</a>
+  <div fxLayout="row" fxLayoutGap="1rem" fxLayoutWrap fxLayoutGap="1rem" class="menu-list">
+    <a class="menu" routerLink="/info" routerLinkActive="active">About</a>
+    <a class="menu" routerLink="/file" routerLinkActive="active">Curriculum File</a>
+  </div>
 </div>
