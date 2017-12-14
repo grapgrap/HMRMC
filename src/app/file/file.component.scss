@@ -1,0 +1,18 @@
+.add-btn-container {
+  .material-icons {
+    display: none;
+    font-size: 18px;
+  }
+  p {
+    display: inline-block;
+    margin: 1.5px 0 1.5px 0;
+  }
+  &:hover {
+    .material-icons {
+      display: inline-block;
+    }
+    p {
+      display: none;
+    }
+  }
+}

@@ -1,21 +1,13 @@
 <div fxLayout="column" fxLayoutGap="1em" class="container">
   <app-file-control-bar></app-file-control-bar>
   <div fxLayout.gt-md="row" fxLayout.lt-lg="column" fxLayoutGap="1em" class="viewer">
-    <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em" class="left">
-      <div class="total">
-        <app-total></app-total>
-      </div>
-      <div class="general">
-        <app-general></app-general>
-      </div>
-      <div class="bsm">
-        <app-bsm></app-bsm>
-      </div>
+    <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em">
+      <app-total></app-total>
+      <app-general></app-general>
+      <app-bsm></app-bsm>
     </div>
-    <div fxFlex="1 1" class="right">
-      <div class="major">
-        <app-major></app-major>
-      </div>
+    <div fxFlex="1 1">
+      <app-major></app-major>
     </div>
   </div>
 </div>

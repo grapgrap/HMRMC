@@ -9,58 +9,79 @@
     <th>교과목명</th>
     <th>학점</th>
     <th>설계학점</th>
-    <th>이수학점</th>
-    <th>설계이수학점</th>
-    <th>이수현황</th>
   </tr>
   </tbody>
   <tbody *ngFor="let semester of mock let i = index">
-  <tr>
-    <th [attr.rowspan]="semester.first.required.length + semester.first.electives.length + 2">{{i + 1}}-1</th>
-    <th [attr.rowspan]="semester.first.required.length + 1">전필</th>
+  <!--1학기-->
+  <!--전공 필수-->
+  <tr >
+    <th [attr.rowspan]="
+    (semester.first.required.length + additionalSubjects[i].first.required.length === 0 ? 1 : semester.first.required.length + additionalSubjects[i].first.required.length)
+    + (semester.first.electives.length + additionalSubjects[i].first.electives.length === 0 ? 1 : semester.first.electives.length + additionalSubjects[i].first.electives.length)
+    + 2">{{i + 1}}-1</th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.first.required.length + additionalSubjects[i].first.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'first', 'required')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.first.required">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
+  <tr *ngIf="semester.first.required.length + additionalSubjects[i].first.required.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].first.required" class="new-item-form">
+    <td><input class="form-control" type="text" [formControl]="majorForm.controls[0].first.required.name"></td>
+    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text"></td>
+  </tr>
+  <!--전공 선택-->
   <tr>
-    <th [attr.rowspan]="semester.first.electives.length + 1">전선</th>
+    <th class="add-btn-container" [attr.rowspan]="semester.first.electives.length + additionalSubjects[i].first.electives.length + 1"><p>전선</p> <i class="material-icons" (click)="addSubject(i, 'first', 'electives')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.first.electives">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+  </tr>
+  <tr *ngIf="semester.first.electives.length + additionalSubjects[i].first.electives.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].first.electives" class="new-item-form">
+    <td><input class="form-control" type="text" [ngModel]="form.name"></td>
+    <td><input class="form-control" type="text" [formControl]="form.credit"></td>
+    <td><input class="form-control" type="text" formControl="form.design_credit"></td>
   </tr>
 
+  <!--2학기-->
+  <!--전공 필수-->
   <tr>
-    <th [attr.rowspan]="semester.second.required.length + semester.second.electives.length + 2">{{i + 1}}-2</th>
-    <th [attr.rowspan]="semester.second.required.length + 1">전필</th>
+    <th [attr.rowspan]="
+    (semester.second.required.length + additionalSubjects[i].second.required.length === 0 ? 1 : semester.second.required.length + additionalSubjects[i].second.required.length)
+    + (semester.second.electives.length + additionalSubjects[i].second.electives.length === 0 ? 1 : semester.second.electives.length + additionalSubjects[i].second.electives.length)
+    + 2">{{i + 1}}-2</th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.second.required.length + additionalSubjects[i].second.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'second', 'required')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.second.required">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
+  <tr *ngIf="semester.second.required.length + additionalSubjects[i].second.required.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].second.required" class="new-item-form">
+    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text"></td>
+  </tr>
+  <!--전공 선택-->
   <tr>
-    <th [attr.rowspan]="semester.second.electives.length + 1">전선</th>
+    <th class="add-btn-container" [attr.rowspan]="semester.second.electives.length + additionalSubjects[i].second.electives.length + 1"><p>전선</p> <i class="material-icons" (click)="addSubject(i, 'second', 'electives')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.second.electives">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.design_credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
+  </tr>
+  <tr *ngIf="semester.second.electives.length + additionalSubjects[i].second.electives.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].second.electives" class="new-item-form">
+    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text"></td>
   </tr>
   </tbody>
 </table>

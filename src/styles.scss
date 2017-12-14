@@ -14,6 +14,10 @@ html, body, app-root {
   text-align: center;
 }
 
+.material-icons {
+  cursor: pointer;
+}
+
 .navbar {
   background-color: $light;
   padding: 0 1rem;
@@ -76,4 +80,12 @@ html, body, app-root {
   &.accent {
     background-color: $secondary;
   }
+}
+
+.form-control {
+  width: 100%;
+  box-sizing: border-box;
+  border-width: 0 0 2px 0;
+  border-color: #C3C3C3;
+  outline: none;
 }

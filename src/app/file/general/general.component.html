@@ -9,7 +9,6 @@
     <th>교과목명</th>
     <th>학점</th>
     <th>이수학점</th>
-    <th>이수현황</th>
   </tr>
   </tbody>
   <tbody *ngFor="let semester of mock let i = index">
@@ -21,7 +20,6 @@
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
 
   <tr>
@@ -32,7 +30,6 @@
     <td>{{subject}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
-    <td class="text-center"><input type="checkbox" [checked]="subject.is_complete" (change)="subject.is_complete = !subject.is_complete"></td>
   </tr>
   </tbody>
 </table>

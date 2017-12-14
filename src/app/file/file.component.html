@@ -1,6 +1,12 @@
-<div fxLayout="column" class="container">
+<div fxLayout="column" fxLayoutGap="1em" class="container">
   <app-file-control-bar></app-file-control-bar>
-  <app-bsm></app-bsm>
-  <app-general></app-general>
-  <app-major></app-major>
+  <div fxLayout.gt-md="row" fxLayout.lt-lg="column" fxLayoutGap="1em" class="viewer">
+    <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em">
+      <app-general></app-general>
+      <app-bsm></app-bsm>
+    </div>
+    <div fxFlex="1 1">
+      <app-major></app-major>
+    </div>
+  </div>
 </div>
