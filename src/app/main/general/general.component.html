@@ -12,7 +12,7 @@
     <th>이수현황</th>
   </tr>
   </tbody>
-  <tbody *ngFor="let semester of mock let i = index">
+  <tbody *ngFor="let semester of generals let i = index">
   <tr>
     <th [attr.rowspan]="semester.first.length + 1">{{i + 1}}-1</th>
     <th [attr.rowspan]="semester.first.length + 1">교필</th>

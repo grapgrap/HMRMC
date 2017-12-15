@@ -8,28 +8,44 @@
     <th>구분</th>
     <th>교과목명</th>
     <th>학점</th>
-    <th>이수학점</th>
+    <th></th>
   </tr>
   </tbody>
-  <tbody *ngFor="let semester of mock let i = index">
-  <tr>
-    <th [attr.rowspan]="semester.first.length + 1">{{i + 1}}-1</th>
-    <th [attr.rowspan]="semester.first.length + 1">기필</th>
+  <tbody *ngFor="let semester of bsms let i = index">
+  <!--1학기-->
+  <!--BMS 필수-->
+  <tr >
+    <th [attr.rowspan]="
+    (semester.first.required.length + additionalSubjects[i].first.required.length === 0 ? 1 : semester.first.required.length + additionalSubjects[i].first.required.length) + 1">{{i + 1}}-1</th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.first.required.length + additionalSubjects[i].first.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'first', 'required')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.first">
+  <tr *ngFor="let subject of semester.first.required let j = index">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required')">delete</i></td>
+  </tr>
+  <tr *ngIf="semester.first.required.length + additionalSubjects[i].first.required.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].first.required let j = index" class="new-item-form">
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required')">delete</i></td>
   </tr>
 
+  <!--2학기-->
+  <!--BMS 필수-->
   <tr>
-    <th [attr.rowspan]="semester.second.length + 1">{{i + 1}}-2</th>
-    <th [attr.rowspan]="semester.second.length + 1">기필</th>
+    <th [attr.rowspan]="
+    (semester.second.required.length + additionalSubjects[i].second.required.length === 0 ? 1 : semester.second.required.length + additionalSubjects[i].second.required.length) + 1">{{i + 1}}-2</th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.second.required.length + additionalSubjects[i].second.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'second', 'required')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.second">
-    <td>{{subject}}</td>
+  <tr *ngFor="let subject of semester.second.required">
+    <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
-    <td class="text-center">{{subject.is_complete ? subject.credit : ''}}</td>
+  </tr>
+  <tr *ngIf="semester.second.required.length + additionalSubjects[i].second.required.length === 0"></tr>
+  <tr *ngFor="let form of additionalSubjects[i].second.required" class="new-item-form">
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
   </tr>
   </tbody>
 </table>

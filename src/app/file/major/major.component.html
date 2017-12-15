@@ -11,7 +11,7 @@
     <th>설계학점</th>
   </tr>
   </tbody>
-  <tbody *ngFor="let semester of mock let i = index">
+  <tbody *ngFor="let semester of majors let i = index">
   <!--1학기-->
   <!--전공 필수-->
   <tr >
@@ -28,9 +28,9 @@
   </tr>
   <tr *ngIf="semester.first.required.length + additionalSubjects[i].first.required.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].first.required" class="new-item-form">
-    <td><input class="form-control" type="text" [formControl]="majorForm.controls[0].first.required.name"></td>
-    <td><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
   </tr>
   <!--전공 선택-->
   <tr>
@@ -43,9 +43,9 @@
   </tr>
   <tr *ngIf="semester.first.electives.length + additionalSubjects[i].first.electives.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].first.electives" class="new-item-form">
-    <td><input class="form-control" type="text" [ngModel]="form.name"></td>
-    <td><input class="form-control" type="text" [formControl]="form.credit"></td>
-    <td><input class="form-control" type="text" formControl="form.design_credit"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
   </tr>
 
   <!--2학기-->
@@ -64,9 +64,9 @@
   </tr>
   <tr *ngIf="semester.second.required.length + additionalSubjects[i].second.required.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].second.required" class="new-item-form">
-    <td><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
   </tr>
   <!--전공 선택-->
   <tr>
@@ -79,9 +79,9 @@
   </tr>
   <tr *ngIf="semester.second.electives.length + additionalSubjects[i].second.electives.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].second.electives" class="new-item-form">
-    <td><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
+    <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
   </tr>
   </tbody>
 </table>

@@ -2,12 +2,12 @@
   <app-file-control-bar></app-file-control-bar>
   <div fxLayout.gt-md="row" fxLayout.lt-lg="column" fxLayoutGap="1em" class="viewer">
     <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em">
-      <app-total></app-total>
-      <app-general></app-general>
-      <app-bsm></app-bsm>
+      <app-total [data]="data"></app-total>
+      <app-bsm [bsms]="data.bsms" ></app-bsm>
+      <app-general [generals]="data.generals"></app-general>
     </div>
     <div fxFlex="1 1">
-      <app-major></app-major>
+      <app-major [majors]="data.majors"></app-major>
     </div>
   </div>
 </div>
