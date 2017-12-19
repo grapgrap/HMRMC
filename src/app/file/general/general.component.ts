@@ -25,4 +25,28 @@ export class GeneralComponent implements OnInit {
       }
     }
   }
+
+  deleteSubject(grade, index, semester, type, isAdditional) {
+    if (isAdditional) {
+      if (semester === 'first') {
+        if (type === 'required') {
+          this.additionalSubjects[grade].first.required.splice(index, 1);
+        }
+      } else if (semester === 'second') {
+        if (type === 'required') {
+          this.additionalSubjects[grade].second.required.splice(index, 1);
+        }
+      }
+    } else {
+      if (semester === 'first') {
+        if (type === 'required') {
+          this.generals[grade].first.required.splice(index, 1);
+        }
+      } else if (semester === 'second') {
+        if (type === 'required') {
+          this.generals[grade].second.required.splice(index, 1);
+        }
+      }
+    }
+  }
 }

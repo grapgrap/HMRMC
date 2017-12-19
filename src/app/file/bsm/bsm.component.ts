@@ -25,15 +25,26 @@ export class BsmComponent implements OnInit {
       }
     }
   }
-  deleteSubject(grade, semester, type, index) {
-    console.log( grade, semester, type, index );
-    if (semester === 'first') {
-      if (type === 'required') {
-        this.additionalSubjects[grade].first.required = this.additionalSubjects[grade].first.required.splice(index, 1);
+  deleteSubject(grade, index, semester, type, isAdditional) {
+    if (isAdditional) {
+      if (semester === 'first') {
+        if (type === 'required') {
+          this.additionalSubjects[grade].first.required.splice(index, 1);
+        }
+      } else if (semester === 'second') {
+        if (type === 'required') {
+          this.additionalSubjects[grade].second.required.splice(index, 1);
+        }
       }
-    } else if (semester === 'second') {
-      if (type === 'required') {
-        this.additionalSubjects[grade].second.required = this.additionalSubjects[grade].second.required.splice(index, 1);
+    } else {
+      if (semester === 'first') {
+        if (type === 'required') {
+          this.bsms[grade].first.required.splice(index, 1);
+        }
+      } else if (semester === 'second') {
+        if (type === 'required') {
+          this.bsms[grade].second.required.splice(index, 1);
+        }
       }
     }
   }

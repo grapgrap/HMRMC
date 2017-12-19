@@ -21,31 +21,35 @@
     + 2">{{i + 1}}-1</th>
     <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.first.required.length + additionalSubjects[i].first.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'first', 'required')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.first.required">
+  <tr *ngFor="let subject of semester.first.required let j = index">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.first.required.length + additionalSubjects[i].first.required.length === 0"></tr>
-  <tr *ngFor="let form of additionalSubjects[i].first.required" class="new-item-form">
+  <tr *ngFor="let form of additionalSubjects[i].first.required let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', true)">delete</i></td>
   </tr>
   <!--전공 선택-->
   <tr>
     <th class="add-btn-container" [attr.rowspan]="semester.first.electives.length + additionalSubjects[i].first.electives.length + 1"><p>전선</p> <i class="material-icons" (click)="addSubject(i, 'first', 'electives')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.first.electives">
+  <tr *ngFor="let subject of semester.first.electives let j = index">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.first.electives.length + additionalSubjects[i].first.electives.length === 0"></tr>
-  <tr *ngFor="let form of additionalSubjects[i].first.electives" class="new-item-form">
+  <tr *ngFor="let form of additionalSubjects[i].first.electives let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', true)">delete</i></td>
   </tr>
 
   <!--2학기-->
@@ -57,31 +61,35 @@
     + 2">{{i + 1}}-2</th>
     <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.second.required.length + additionalSubjects[i].second.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'second', 'required')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.second.required">
+  <tr *ngFor="let subject of semester.second.required let j = index">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.second.required.length + additionalSubjects[i].second.required.length === 0"></tr>
-  <tr *ngFor="let form of additionalSubjects[i].second.required" class="new-item-form">
+  <tr *ngFor="let form of additionalSubjects[i].second.required let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', true)">delete</i></td>
   </tr>
   <!--전공 선택-->
   <tr>
     <th class="add-btn-container" [attr.rowspan]="semester.second.electives.length + additionalSubjects[i].second.electives.length + 1"><p>전선</p> <i class="material-icons" (click)="addSubject(i, 'second', 'electives')">add_box</i></th>
   </tr>
-  <tr *ngFor="let subject of semester.second.electives">
+  <tr *ngFor="let subject of semester.second.electives let j = index">
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.second.electives.length + additionalSubjects[i].second.electives.length === 0"></tr>
-  <tr *ngFor="let form of additionalSubjects[i].second.electives" class="new-item-form">
+  <tr *ngFor="let form of additionalSubjects[i].second.electives let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', true)">delete</i></td>
   </tr>
   </tbody>
 </table>

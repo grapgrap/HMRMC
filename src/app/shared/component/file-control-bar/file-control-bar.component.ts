@@ -9,11 +9,34 @@ export class FileControlBarComponent implements OnInit {
   @Input() data: any;
   @Input() additionalSubjects: any;
   @Output() dataChange = new EventEmitter();
+  @Output() additionalSubjectsChange = new EventEmitter();
+
+  resetAdditionalData: any;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.resetAdditionalData = {
+      bsms: [
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+      ],
+      generals: [
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+        {first: {required: []}, second: {required: []}},
+      ],
+      majors: [
+        {first: {required: [], electives: []}, second: {required: [], electives: []}},
+        {first: {required: [], electives: []}, second: {required: [], electives: []}},
+        {first: {required: [], electives: []}, second: {required: [], electives: []}},
+        {first: {required: [], electives: []}, second: {required: [], electives: []}},
+      ]
+    };
   }
 
   save() {
@@ -97,10 +120,37 @@ export class FileControlBarComponent implements OnInit {
         },
       ]
     };
-    console.log(result);
+    const downloadElement = document.createElement('a');
+    const file = new Blob([JSON.stringify(result)], {type: 'application/json'});
+
+    if (window.navigator.msSaveOrOpenBlob) { // IE10+
+      window.navigator.msSaveOrOpenBlob(file, `curriculum.json`);
+      this.data = result;
+      this.dataChange.emit(this.data);
+      this.additionalSubjectsChange.emit(this.resetAdditionalData);
+    } else { // Others
+      const url = URL.createObjectURL(file);
+      downloadElement.href = url;
+      downloadElement.download = `curriculum.json`;
+      document.body.appendChild(downloadElement);
+      downloadElement.click();
+      setTimeout(function () {
+        document.body.removeChild(downloadElement);
+        window.URL.revokeObjectURL(url);
+      }, 0);
+      this.data = result;
+      this.dataChange.emit(this.data);
+      this.additionalSubjectsChange.emit(this.resetAdditionalData);
+    }
   }
 
-  load() {
-    this.dataChange.emit(this.data);
+  load(event) {
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.data = JSON.parse(event.target.result);
+      this.dataChange.emit(this.data);
+    };
+    reader.readAsText(event.target.files[0]);
+    event.target.value = '';
   }
 }
