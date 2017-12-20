@@ -17,7 +17,7 @@
   <tr >
     <th [attr.rowspan]="
     (semester.first.required.length + additionalSubjects[i].first.required.length === 0 ? 1 : semester.first.required.length + additionalSubjects[i].first.required.length) + 1">{{i + 1}}-1</th>
-    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.first.required.length + additionalSubjects[i].first.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'first', 'required')">add_box</i></th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.first.required.length + additionalSubjects[i].first.required.length + 1"><p>기필</p> <i class="material-icons" (click)="addSubject(i, 'first', 'required')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.first.required let j = index">
     <td>{{subject.name}}</td>
@@ -36,7 +36,7 @@
   <tr>
     <th [attr.rowspan]="
     (semester.second.required.length + additionalSubjects[i].second.required.length === 0 ? 1 : semester.second.required.length + additionalSubjects[i].second.required.length) + 1">{{i + 1}}-2</th>
-    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.second.required.length + additionalSubjects[i].second.required.length + 1"><p>전필</p> <i class="material-icons" (click)="addSubject(i, 'second', 'required')">add_box</i></th>
+    <th fxLayout="row" class="add-btn-container" [attr.rowspan]="semester.second.required.length + additionalSubjects[i].second.required.length + 1"><p>기필</p> <i class="material-icons" (click)="addSubject(i, 'second', 'required')">add_box</i></th>
   </tr>
   <tr *ngFor="let subject of semester.second.required let j = index">
     <td>{{subject.name}}</td>
