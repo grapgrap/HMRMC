@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-file-control-bar',
@@ -40,6 +41,36 @@ export class FileControlBarComponent implements OnInit {
   }
 
   save() {
+    const downloadElement = document.createElement('a');
+    const result = isUndefined(this.additionalSubjects) ? this.makePersonalFile() : this.makeCurriculumFile();
+    const file = new Blob([JSON.stringify(result)], {type: 'application/json'});
+
+    if (window.navigator.msSaveOrOpenBlob) { // IE10+
+      window.navigator.msSaveOrOpenBlob(file, `curriculum.json`);
+      this.data = result;
+      this.dataChange.emit(this.data);
+      if (!isUndefined(this.additionalSubjects)) {
+        this.additionalSubjectsChange.emit(this.resetAdditionalData)
+      };
+    } else { // Others
+      const url = URL.createObjectURL(file);
+      downloadElement.href = url;
+      downloadElement.download = isUndefined(this.additionalSubjects) ? `hmrmc_personal.json` : `hmrmc_curriculum.json`;
+      document.body.appendChild(downloadElement);
+      downloadElement.click();
+      setTimeout(function () {
+        document.body.removeChild(downloadElement);
+        window.URL.revokeObjectURL(url);
+      }, 0);
+      this.data = result;
+      this.dataChange.emit(this.data);
+      if (!isUndefined(this.additionalSubjects)) {
+        this.additionalSubjectsChange.emit(this.resetAdditionalData)
+      };
+    }
+  }
+
+  makeCurriculumFile() {
     const result = {
       bsms: [
         {
@@ -120,28 +151,12 @@ export class FileControlBarComponent implements OnInit {
         },
       ]
     };
-    const downloadElement = document.createElement('a');
-    const file = new Blob([JSON.stringify(result)], {type: 'application/json'});
+    return result;
+  }
 
-    if (window.navigator.msSaveOrOpenBlob) { // IE10+
-      window.navigator.msSaveOrOpenBlob(file, `curriculum.json`);
-      this.data = result;
-      this.dataChange.emit(this.data);
-      this.additionalSubjectsChange.emit(this.resetAdditionalData);
-    } else { // Others
-      const url = URL.createObjectURL(file);
-      downloadElement.href = url;
-      downloadElement.download = `curriculum.json`;
-      document.body.appendChild(downloadElement);
-      downloadElement.click();
-      setTimeout(function () {
-        document.body.removeChild(downloadElement);
-        window.URL.revokeObjectURL(url);
-      }, 0);
-      this.data = result;
-      this.dataChange.emit(this.data);
-      this.additionalSubjectsChange.emit(this.resetAdditionalData);
-    }
+  makePersonalFile() {
+    const result = this.data;
+    return result
   }
 
   load(event) {
