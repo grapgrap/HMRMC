@@ -163,7 +163,13 @@ export class FileControlBarComponent implements OnInit {
   }
 
   makePersonalFile() {
-    const result = this.data;
+    const result = {
+      total: this.data.total,
+      normal: this.data.normal.value,
+      bsms: this.data.bsms,
+      generals: this.data.generals,
+      majors: this.data.majors
+    };
     return result
   }
 

@@ -10,40 +10,40 @@
   </tr>
   <tr>
     <th>교양(필수)</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="text-center">{{ data.total.general }}</td>
+    <td class="text-center"></td>
+    <td class="text-center">{{ general }}</td>
+    <td class="text-center"></td>
+    <td class="text-center">{{ data.total.general - general }}</td>
+    <td class="text-center"></td>
   </tr>
   <tr>
     <th>BSM(필수)</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="text-center">{{ data.total.bsm }}</td>
+    <td class="text-center"></td>
+    <td class="text-center">{{ bsm }}</td>
+    <td class="text-center"></td>
+    <td class="text-center">{{ data.total.bsm - bsm }}</td>
+    <td class="text-center"></td>
   </tr>
   <tr>
     <th>전공(필수 + 선택)</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="text-center">{{ data.total.major.normal }}</td>
+    <td class="text-center">{{ data.total.major.design }}</td>
+    <td class="text-center">{{ normal }}</td>
+    <td class="text-center">{{ design }}</td>
+    <td class="text-center">{{ data.total.major.normal - normal }}</td>
+    <td class="text-center">{{ data.total.major.design - design }}</td>
   </tr>
   <tr>
     <th>일반 교과목</th>
     <th colspan="2">※ 상기 과목 외 교과목</th>
-    <td colspan="4"></td>
+    <td colspan="4"><input type="text" class="form-control text-center" [formControl]="data.normal"></td>
   </tr>
   <tr>
     <th>총합</th>
-    <td colspan="2"></td>
-    <td colspan="2"></td>
-    <td colspan="2"></td>
+    <td class="text-center" colspan="2">{{ total }}</td>
+    <td class="text-center" colspan="2">{{ completeTotal }}</td>
+    <td class="text-center" colspan="2">{{ total - completeTotal }}</td>
   </tr>
 </table>
