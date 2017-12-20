@@ -13,7 +13,7 @@ export class FileComponent implements OnInit {
 
   ngOnInit() {
     this.data = {
-      total: {bsm: '', general: '', major: { normal: '', design: '' }},
+      total: {total: '', bsm: '', general: '', major: { normal: '', design: '' }},
       bsms: [
         {first: {required: []}, second: {required: []}},
         {first: {required: []}, second: {required: []}},

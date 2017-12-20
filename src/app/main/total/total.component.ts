@@ -27,7 +27,7 @@ export class TotalComponent implements OnChanges, DoCheck {
     this.general = 0;
     this.normal = 0;
     this.design = 0;
-    this.total = 0;
+    this.total = this.data.total.total | 0;
     this.completeTotal = 0;
 
     this.data.bsms.forEach((bsm: any) => {
@@ -64,7 +64,6 @@ export class TotalComponent implements OnChanges, DoCheck {
         this.design += subject.is_complete ? +subject.design_credit : 0;
       });
     });
-    this.total = (+this.data.total.bsm) + (+this.data.total.general) + (+this.data.total.major.normal) + (+this.data.total.major.design);
     this.completeTotal = this.bsm + this.general + this.normal + this.design + (+this.data.normal.value);
   }
 }

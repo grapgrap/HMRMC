@@ -42,7 +42,7 @@
   </tr>
   <tr>
     <th>총합</th>
-    <td class="text-center" colspan="2">{{ total }}</td>
+    <td class="text-center" colspan="2">{{ total === 0 ? '' : total }}</td>
     <td class="text-center" colspan="2">{{ completeTotal }}</td>
     <td class="text-center" colspan="2">{{ total - completeTotal }}</td>
   </tr>

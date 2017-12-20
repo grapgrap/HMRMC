@@ -73,6 +73,7 @@ export class FileControlBarComponent implements OnInit {
   makeCurriculumFile() {
     const result = {
       total: {
+        total: this.data.total.total.value,
         general: this.data.total.general.value,
         bsm: this.data.total.bsm.value,
         major: {

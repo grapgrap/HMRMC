@@ -21,5 +21,6 @@ export class TotalComponent implements OnInit, OnChanges {
     this.total.bsm = this.fb.control(this.total.bsm);
     this.total.major.normal = this.fb.control(this.total.major.normal);
     this.total.major.design = this.fb.control(this.total.major.design);
+    this.total.total = this.fb.control(this.total.total);
   }
 }
