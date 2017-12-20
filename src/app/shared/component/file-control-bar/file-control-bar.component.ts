@@ -72,6 +72,14 @@ export class FileControlBarComponent implements OnInit {
 
   makeCurriculumFile() {
     const result = {
+      total: {
+        general: this.data.total.general.value,
+        bsm: this.data.total.bsm.value,
+        major: {
+          normal: this.data.total.major.normal.value,
+          design: this.data.total.major.design.value
+        }
+      },
       bsms: [
         {
           first: {required: [...this.data.bsms[0].first.required, ...this.additionalSubjects.bsms[0].first.required.map(form => form.value)]},

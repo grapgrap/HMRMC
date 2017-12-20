@@ -2,6 +2,7 @@
   <app-file-control-bar [(data)]="data" [(additionalSubjects)]="additionalSubjects"></app-file-control-bar>
   <div fxLayout.gt-md="row" fxLayout.lt-lg="column" fxLayoutGap="1em" class="viewer">
     <div fxFlex="1 1" fxLayout="column" fxLayoutGap="1em">
+      <app-total [total]="data.total"></app-total>
       <app-bsm [bsms]="data.bsms" [additionalSubjects]="additionalSubjects.bsms"></app-bsm>
       <app-general [generals]="data.generals" [additionalSubjects]="additionalSubjects.generals"></app-general>
     </div>
