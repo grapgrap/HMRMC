@@ -65,14 +65,14 @@
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', false)">delete</i></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'second', 'required', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.second.required.length + additionalSubjects[i].second.required.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].second.required let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
-    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'required', true)">delete</i></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'second', 'required', true)">delete</i></td>
   </tr>
   <!--전공 선택-->
   <tr>
@@ -82,14 +82,14 @@
     <td>{{subject.name}}</td>
     <td class="text-center">{{subject.credit}}</td>
     <td class="text-center">{{subject.design_credit}}</td>
-    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', false)">delete</i></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'second', 'electives', false)">delete</i></td>
   </tr>
   <tr *ngIf="semester.second.electives.length + additionalSubjects[i].second.electives.length === 0"></tr>
   <tr *ngFor="let form of additionalSubjects[i].second.electives let j = index" class="new-item-form">
     <td><input class="form-control" type="text" [formControl]="form.get('name')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('credit')"></td>
     <td><input class="form-control" type="text" [formControl]="form.get('design_credit')"></td>
-    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'first', 'electives', true)">delete</i></td>
+    <td class="text-center"><i class="material-icons" (click)="deleteSubject(i, j, 'second', 'electives', true)">delete</i></td>
   </tr>
   </tbody>
 </table>
