@@ -59,7 +59,7 @@ export class TotalComponent implements OnChanges, DoCheck {
         this.normal += subject.is_complete ? +subject.credit : 0;
         this.design += subject.is_complete ? +subject.design_credit : 0;
       });
-      major.first.electives.forEach((subject: any) => {
+      major.second.electives.forEach((subject: any) => {
         this.normal += subject.is_complete ? +subject.credit : 0;
         this.design += subject.is_complete ? +subject.design_credit : 0;
       });
