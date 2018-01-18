@@ -64,6 +64,6 @@ export class TotalComponent implements OnChanges, DoCheck {
         this.design += subject.is_complete ? +subject.design_credit : 0;
       });
     });
-    this.completeTotal = this.bsm + this.general + this.normal + this.design + (+this.data.normal.value);
+    this.completeTotal = this.bsm + this.general + this.normal + (+this.data.normal.value);
   }
 }
